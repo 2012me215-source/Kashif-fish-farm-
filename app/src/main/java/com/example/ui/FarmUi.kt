@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -152,7 +153,7 @@ fun FarmAppScreen(viewModel: FarmViewModel) {
                     label = { Text("Expenses") },
                     icon = {
                         Icon(
-                            imageVector = Icons.Default.List,
+                            imageVector = Icons.AutoMirrored.Filled.List,
                             contentDescription = "Expenses"
                         )
                     },
@@ -194,7 +195,7 @@ fun FarmAppScreen(viewModel: FarmViewModel) {
                         }
                         ExtendedFloatingActionButton(
                             text = { Text("New Expense") },
-                            icon = { Icon(Icons.Default.List, contentDescription = "Add Expense") },
+                            icon = { Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Add Expense") },
                             onClick = { showAddExpenseDialog = true },
                             containerColor = MaterialTheme.colorScheme.primary,
                             contentColor = Color.White,
@@ -301,7 +302,6 @@ fun DashboardScreen(
     val totalExpenses = expenses.sumOf { it.totalCost }
     val netProfit = totalEarnings - totalExpenses
 
-    val currencyFormat = remember { NumberFormat.getCurrencyInstance(Locale("en", "PK")) }
     // Clean currency display
     fun formatAmt(amount: Double): String {
         return "Rs. " + String.format("%,.2f", amount)
@@ -1277,7 +1277,7 @@ fun CategoryIconBox(category: String) {
         "feed" -> Triple(TealPrimary.copy(alpha = 0.12f), TealPrimary, Icons.Default.ShoppingCart)
         "water" -> Triple(TealTertiary.copy(alpha = 0.12f), TealTertiary, Icons.Default.Info)
         "medicine" -> Triple(PurpleAccent.copy(alpha = 0.12f), PurpleAccent, Icons.Default.Warning)
-        else -> Triple(Color.Gray.copy(alpha = 0.12f), Color.Gray, Icons.Default.List)
+        else -> Triple(Color.Gray.copy(alpha = 0.12f), Color.Gray, Icons.AutoMirrored.Filled.List)
     }
     
     Box(

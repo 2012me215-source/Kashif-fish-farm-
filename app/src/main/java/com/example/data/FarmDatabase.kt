@@ -25,7 +25,7 @@ abstract class FarmDatabase : RoomDatabase() {
                     FarmDatabase::class.java,
                     "kashif_aqua_farm_db"
                 )
-                .fallbackToDestructiveMigration()
+                .fallbackToDestructiveMigration(dropAllTables = true)
                 .build()
                 INSTANCE = instance
                 instance
